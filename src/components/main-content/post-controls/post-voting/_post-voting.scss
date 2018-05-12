@@ -1,0 +1,49 @@
+.post-voting {
+	height: 100%;
+	@include flex();
+	@include flex-align(center, middle);
+	.voting-triggers {
+		font-size: 1rem;
+		svg {
+			font-size: 1rem;
+		}
+		.vote-up-trigger, .vote-down-trigger {
+			position:relative;
+			cursor:pointer;
+		}
+		.vote-up-trigger {
+			margin-right: 4px;
+			top:-1px;
+			@media (min-width: 500px) {
+				margin-right: 10px;
+			}
+			@include breakpoint(medium) {
+				margin-right: 0;
+				top: 0;
+			}
+		}
+		.vote-number {
+			font-weight:bold;
+			@include breakpoint(medium) {
+				margin:3px auto;
+			}
+		}
+		.vote-down-trigger {
+			margin-left: 6px;
+			top:1px;
+			@media (min-width: 500px) {
+				margin-left: 12px;
+			}
+			@include breakpoint(medium) {
+				margin-left:0;
+				top:0;
+			}
+		}
+		@include breakpoint(medium) {
+			@include flex();
+			@include flex-align(center, middle);
+			flex-direction:column;
+			padding:5px;
+		}
+	}
+}

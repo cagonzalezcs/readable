@@ -1,0 +1,8 @@
+.edit-post {
+	height:100%;
+	@include flex();
+	@include flex-align(center, middle);
+	.edit-post-trigger {
+		cursor: pointer;
+	}
+}

@@ -1,0 +1,32 @@
+.footer {
+	width:100%;
+	height:auto;
+	position:fixed;
+	z-index: 9999;
+	bottom:0;
+	left:0;
+	color:$secondary-white;
+	background-color:darken($primary-black, 7%);
+	padding:7px 10px;
+	text-align:center;
+	font-size:.8rem;
+	.project-info, .project-creator {
+		display:block;
+		line-height:1.2;
+		@include breakpoint(large) {
+			display:inline-block;
+		}
+	}
+	@include breakpoint(medium) {
+		font-size:.95rem;
+	}
+	@include breakpoint(large) {
+		font-size:1rem;
+		@include flex();
+		@include flex-align(center, middle);
+		justify-content:space-between;
+	}
+	@include breakpoint(large) {
+		padding:10px 15px;
+	}
+}

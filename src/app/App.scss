@@ -1,0 +1,24 @@
+// Foundation SASS
+@import '../node_modules/foundation-sites/scss/util/util';
+@import '../node_modules/foundation-sites/scss/settings/settings';
+@import '../node_modules/foundation-sites/scss/foundation';
+@include foundation-everything;
+
+// Application Styles
+@import "sass/mixins";
+@import "sass/colors";
+@import "sass/typography";
+@import "sass/general";
+
+// Component Styles
+@import "../components/nav/navigation";
+@import "../components/main-content/main-content-area";
+@import "../components/main-content/list-posts/list-posts";
+@import "../components/main-content/sort-posts/sort-posts";
+@import "../components/main-content/post-item/post-item";
+@import "../components/main-content/post-controls/post-controls";
+@import "../components/main-content/post-controls/comments-count/comments-count";
+@import "../components/main-content/post-controls/delete-post/delete-post";
+@import "../components/main-content/post-controls/edit-post/edit-post";
+@import "../components/main-content/post-controls/post-voting/post-voting";
+@import "../components/footer/footer";

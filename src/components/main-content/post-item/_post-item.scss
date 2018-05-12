@@ -1,0 +1,98 @@
+.post-item {
+	background:#f0f0f0;
+	margin-bottom:20px;
+	box-shadow:2px 2px 5px rgba(0, 0, 0, 0.35);
+	border-left:4px solid $secondary-blue;
+	.post-details {
+		padding:10px 12px;
+		@include breakpoint(medium) {
+			padding:15px;
+			width:calc(100% - 75px);
+		}
+	}
+	.post-controls-wrapper {
+		@include breakpoint(medium) {
+			width:75px;
+			min-height:275px;
+		}
+	}
+	.category-link {
+		text-transform:uppercase;
+		font-weight:bold;
+		font-size:.9rem;
+		color:$secondary-blue;
+		@media (min-width:850px) {
+			font-size:1.1rem;
+		}
+		@include breakpoint(large) {
+			font-size:1.2rem;
+		}
+		@include breakpoint(xlarge) {
+			font-size:1.4rem;
+		}
+	}
+	.post-title {
+		h2 {
+			font-size:1.3rem;
+			color:$secondary-blue;
+			line-height:1.1;
+			margin-bottom:4px;
+			@media (min-width:850px) {
+				font-size:1.6rem;
+			}
+			@include breakpoint(large) {
+				font-size:2rem;
+			}
+			@include breakpoint(xlarge) {
+				font-size:2.6rem;
+			}
+		}
+	}
+	.post-meta {
+		font-size:.75rem;
+		line-height:1.4;
+		margin-bottom:7px;
+		.post-author, .post-date {
+			display:inline-block;
+		}
+		.post-author {
+			margin-right:5px;
+		}
+		@media (min-width:850px) {
+			font-size:.9rem;
+		}
+		@include breakpoint(large) {
+			font-size:1.05rem;
+		}
+		@include breakpoint(xlarge) {
+			font-size:1.2rem;
+		}
+	}
+	.post-excerpt {
+		font-size:.95rem;
+		line-height:1.4;
+		.excerpt {
+			margin-bottom:3px;
+		}
+		@media (min-width:850px) {
+			font-size:1.15rem;
+		}
+		@include breakpoint(large) {
+			font-size:1.3rem;
+		}
+		@include breakpoint(xlarge) {
+			font-size:1.5rem;
+		}
+	}
+	@include breakpoint(medium) {
+		@include flex();
+		@include flex-align(center, middle);
+		justify-content:space-between;
+		align-items:stretch;
+		align-content:stretch;
+		flex-grow:1;
+	}
+	@include breakpoint(large) {
+		margin-bottom:25px;
+	}
+}

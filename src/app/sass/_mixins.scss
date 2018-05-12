@@ -1,0 +1,42 @@
+// Radial Graident Backgrounds
+@mixin top-left-radial-graident($color-stop-start-percentage: 0%, $color-stop-end-percentage: 57%, $start-color: #777, $end-color: #333) {
+	background-color:$end-color;
+	background: -moz-radial-gradient(top left, ellipse cover, $start-color $color-stop-start-percentage, $end-color $color-stop-end-percentage);
+	background: -webkit-gradient(radial, top left, 0px, top left, 100%, color-stop($color-stop-start-percentage,$start-color), color-stop($color-stop-end-percentage,$end-color));
+	background: -webkit-radial-gradient(top left, ellipse cover, $start-color $color-stop-start-percentage,$end-color $color-stop-end-percentage);
+	background: -o-radial-gradient(top left, ellipse cover, $start-color $color-stop-start-percentage,$end-color $color-stop-end-percentage);
+	background: -ms-radial-gradient(top left, ellipse cover, $start-color $color-stop-start-percentage,$end-color $color-stop-end-percentage);
+	background: radial-gradient(ellipse at top left, $start-color $color-stop-start-percentage, $end-color $color-stop-end-percentage);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$second-color',GradientType=1 );
+}
+
+@mixin bottom-right-radial-graident($color-stop-start-percentage: 0%, $color-stop-end-percentage: 57%, $start-color: #777, $end-color: #333) {
+	background-color:$end-color;
+	background: -moz-radial-gradient(bottom right, ellipse cover, $start-color $color-stop-start-percentage, $end-color $color-stop-end-percentage);
+	background: -webkit-gradient(radial, bottom right, 0px, top left, 100%, color-stop($color-stop-start-percentage,$start-color), color-stop($color-stop-end-percentage,$end-color));
+	background: -webkit-radial-gradient(bottom right, ellipse cover, $start-color $color-stop-start-percentage,$end-color $color-stop-end-percentage);
+	background: -o-radial-gradient(bottom right, ellipse cover, $start-color $color-stop-start-percentage,$end-color $color-stop-end-percentage);
+	background: -ms-radial-gradient(bottom right, ellipse cover, $start-color $color-stop-start-percentage,$end-color $color-stop-end-percentage);
+	background: radial-gradient(ellipse at bottom right, $start-color $color-stop-start-percentage, $end-color $color-stop-end-percentage);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$second-color',GradientType=1 );
+}
+
+@mixin bottom-left-radial-graident($color-stop-start-percentage: 0%, $color-stop-end-percentage: 57%, $start-color: #777, $end-color: #333) {
+	background-color:$end-color;
+	background: -moz-radial-gradient(bottom left, ellipse cover, $start-color $color-stop-start-percentage, $end-color $color-stop-end-percentage);
+	background: -webkit-gradient(radial, bottom left, 0px, top right, 100%, color-stop($color-stop-start-percentage,$start-color), color-stop($color-stop-end-percentage,$end-color));
+	background: -webkit-radial-gradient(bottom left, ellipse cover, $start-color $color-stop-start-percentage,$end-color $color-stop-end-percentage);
+	background: -o-radial-gradient(bottom left, ellipse cover, $start-color $color-stop-start-percentage,$end-color $color-stop-end-percentage);
+	background: -ms-radial-gradient(bottom left, ellipse cover, $start-color $color-stop-start-percentage,$end-color $color-stop-end-percentage);
+	background: radial-gradient(ellipse at bottom left, $start-color $color-stop-start-percentage, $end-color $color-stop-end-percentage);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$second-color',GradientType=1 );
+}
+
+// CSS3 Transitions
+@mixin css-transition($property: all, $duration: .25s, $function: ease) {
+	-webkit-transition: $property $duration $function;
+	-moz-transition: $property $duration $function;
+	-ms-transition: $property $duration $function;
+	-o-transition: $property $duration $function;
+	transition: $property $duration $function;
+}

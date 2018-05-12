@@ -1,0 +1,18 @@
+.application-body {
+	width:100%;
+	height:auto;
+	min-height:100vh;
+	@include bottom-left-radial-graident(0%, 75%, darken($primary-white, 12%), lighten($primary-white, 4%))
+	.app-content {
+		position: relative;
+		@include breakpoint(medium) {
+			width:100%;
+			height:auto;
+			@include flex();
+			@include flex-align(right, top);
+		}
+		@media (min-width:900px) {
+			@include flex-align(center, middle);
+		}
+	}
+}
