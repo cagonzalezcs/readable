@@ -5042,6 +5042,7 @@ a {
   width: 100%;
   height: auto;
   min-height: 100vh;
+  overflow-x: hidden;
   background-color: #f8f9fa;
   background: -moz-radial-gradient(bottom left, ellipse cover, #c9d4d7 0%, #f8f9fa 75%);
   background: -webkit-gradient(radial, bottom left, 0px, top right, 100%, color-stop(0%, #c9d4d7), color-stop(75%, #f8f9fa));
@@ -5351,7 +5352,8 @@ a {
 .post-list .post-list-title h1 {
   font-size: 1.45rem;
   text-align: center;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  text-transform: capitalize; }
   @media print, screen and (min-width: 40em) {
     .post-list .post-list-title h1 {
       font-size: 1.2rem;
@@ -5386,6 +5388,20 @@ a {
   @media (min-width: 1450px) {
     .post-list .item-sorting {
       max-width: 400px; } }
+
+.post-list .no-posts-available {
+  font-size: 1rem; }
+  .post-list .no-posts-available .category {
+    text-transform: capitalize; }
+  @media print, screen and (min-width: 40em) {
+    .post-list .no-posts-available {
+      font-size: 1.2rem; } }
+  @media print, screen and (min-width: 64em) {
+    .post-list .no-posts-available {
+      font-size: 1.4rem; } }
+  @media screen and (min-width: 75em) {
+    .post-list .no-posts-available {
+      font-size: 1.6rem; } }
 
 .item-sorting-controls {
   display: flex;
@@ -5441,7 +5457,7 @@ a {
     text-transform: uppercase;
     font-weight: bold;
     font-size: .9rem;
-    color: #2c3e50; }
+    display: inline-block; }
     @media (min-width: 850px) {
       .post-item .category-link {
         font-size: 1.1rem; } }
@@ -5507,13 +5523,57 @@ a {
       align-items: center;
       justify-content: space-between;
       align-items: stretch;
-      align-content: stretch;
-      flex-grow: 1; } }
+      align-content: stretch; } }
   @media print, screen and (min-width: 64em) {
     .post-item {
       margin-bottom: 25px; } }
 
-.post-item .post-controls {
+.single-post {
+  background-color: #f0f0f0;
+  border-top: 5px solid #2c3e50;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  padding: 10px 0; }
+  .single-post .post-title, .single-post .post-meta, .single-post .post-content, .single-post .post-comments {
+    padding: 0 10px; }
+    @media print, screen and (min-width: 40em) {
+      .single-post .post-title, .single-post .post-meta, .single-post .post-content, .single-post .post-comments {
+        padding: 0 15px; } }
+    @media print, screen and (min-width: 64em) {
+      .single-post .post-title, .single-post .post-meta, .single-post .post-content, .single-post .post-comments {
+        padding: 0 20px; } }
+  .single-post .post-controls-wrapper {
+    margin: 20px auto; }
+    .single-post .post-controls-wrapper .post-controls > div {
+      width: 22%; }
+      .single-post .post-controls-wrapper .post-controls > div:first-child {
+        width: 33%; }
+        @media print, screen and (min-width: 40em) {
+          .single-post .post-controls-wrapper .post-controls > div:first-child {
+            height: 100%; } }
+      @media print, screen and (min-width: 40em) {
+        .single-post .post-controls-wrapper .post-controls > div {
+          width: 22%;
+          height: 100%;
+          padding: 5px; } }
+    @media print, screen and (min-width: 40em) {
+      .single-post .post-controls-wrapper .post-controls .post-voting .voting-triggers {
+        flex-direction: row;
+        padding: 0; }
+        .single-post .post-controls-wrapper .post-controls .post-voting .voting-triggers .vote-up-trigger {
+          margin-right: 10px;
+          top: -1px; }
+        .single-post .post-controls-wrapper .post-controls .post-voting .voting-triggers .vote-number {
+          margin: 0; }
+        .single-post .post-controls-wrapper .post-controls .post-voting .voting-triggers .vote-down-trigger {
+          margin-left: 12px;
+          top: 1px; } }
+    @media print, screen and (min-width: 40em) {
+      .single-post .post-controls-wrapper .post-controls {
+        justify-content: center;
+        align-items: center;
+        flex-direction: row; } }
+
+.post-controls {
   width: 100%;
   height: auto;
   min-height: 55px;
@@ -5525,19 +5585,22 @@ a {
   color: #ecf0f1;
   background: #2c3e50;
   text-align: center; }
-  .post-item .post-controls > div {
-    width: 25%; }
+  .post-controls > div {
+    width: 22%; }
+    .post-controls > div:first-child {
+      width: 33%; }
+      @media print, screen and (min-width: 40em) {
+        .post-controls > div:first-child {
+          width: 100%;
+          height: 33%; } }
     @media print, screen and (min-width: 40em) {
-      .post-item .post-controls > div:first-child {
-        height: 33%; } }
-    @media print, screen and (min-width: 40em) {
-      .post-item .post-controls > div {
+      .post-controls > div {
         width: 100%;
         height: 22%;
         padding: 5px; } }
-  .post-item .post-controls .control-icon-box {
+  .post-controls .control-icon-box {
     position: relative; }
-    .post-item .post-controls .control-icon-box .controls-tooltip {
+    .post-controls .control-icon-box .controls-tooltip {
       width: 126px;
       text-align: center;
       font-weight: bold;
@@ -5558,7 +5621,7 @@ a {
       transition: 0.25s all ease;
       transition-property: opacity, transform;
       border-radius: 2px; }
-      .post-item .post-controls .control-icon-box .controls-tooltip:after {
+      .post-controls .control-icon-box .controls-tooltip:after {
         content: '';
         width: 0;
         height: 0;
@@ -5569,14 +5632,14 @@ a {
         right: calc(50% - 12px);
         top: 100%; }
         @media print, screen and (min-width: 40em) {
-          .post-item .post-controls .control-icon-box .controls-tooltip:after {
+          .post-controls .control-icon-box .controls-tooltip:after {
             border-width: 12px 0 12px 10px;
             border-color: transparent transparent transparent #2c3e50;
             right: auto;
             left: 100%;
             top: calc(50% - 12px); } }
       @media print, screen and (min-width: 40em) {
-        .post-item .post-controls .control-icon-box .controls-tooltip {
+        .post-controls .control-icon-box .controls-tooltip {
           font-size: .95rem;
           width: 150px;
           padding: 8px 10px;
@@ -5585,21 +5648,21 @@ a {
           right: calc(100% + 36px);
           top: calc(50% - 19px);
           transform: translateY(0);
-          transform: translateX(-15px); } }
+          transform: translateX(15px); } }
       @media screen and (min-width: 75em) {
-        .post-item .post-controls .control-icon-box .controls-tooltip {
+        .post-controls .control-icon-box .controls-tooltip {
           font-size: 1.05rem;
           width: 175px;
           padding: 10px 25px;
           top: calc(50% - 20px); } }
-    .post-item .post-controls .control-icon-box:hover .controls-tooltip, .post-item .post-controls .control-icon-box:active .controls-tooltip, .post-item .post-controls .control-icon-box:focus .controls-tooltip {
+    .post-controls .control-icon-box:hover .controls-tooltip, .post-controls .control-icon-box:active .controls-tooltip, .post-controls .control-icon-box:focus .controls-tooltip {
       display: block;
       opacity: 1;
       z-index: 999;
       transform: translateY(0);
       transform: translateX(0); }
   @media print, screen and (min-width: 40em) {
-    .post-item .post-controls {
+    .post-controls {
       flex-direction: column;
       height: 100%; } }
 
@@ -5644,7 +5707,7 @@ a {
       position: relative;
       cursor: pointer; }
     .post-voting .voting-triggers .vote-up-trigger {
-      margin-right: 4px;
+      margin-right: 5px;
       top: -1px; }
       @media (min-width: 500px) {
         .post-voting .voting-triggers .vote-up-trigger {
@@ -5659,7 +5722,7 @@ a {
         .post-voting .voting-triggers .vote-number {
           margin: 3px auto; } }
     .post-voting .voting-triggers .vote-down-trigger {
-      margin-left: 6px;
+      margin-left: 7px;
       top: 1px; }
       @media (min-width: 500px) {
         .post-voting .voting-triggers .vote-down-trigger {

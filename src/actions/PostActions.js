@@ -9,11 +9,11 @@ export const STORE_NEW_POST = 'STORE_NEW_POST';
 export const REMOVE_POST = 'REMOVE_POST';
 
 // Get Multiple Posts from API
-export const getPosts = ( filter ) => ( dispatch ) => {
-	return ReadableAPI
+export const getPosts = ( filter ) => ( dispatch ) => (
+	ReadableAPI
 		.getPosts( filter )
-		.then( ( posts ) => dispatch( storePosts( posts )));
-}
+		.then( ( posts ) => dispatch( storePosts( posts )))
+)
 
 
 

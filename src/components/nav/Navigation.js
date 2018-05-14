@@ -7,6 +7,7 @@ import { getCategories, selectCategory } from '../../actions/CategoryActions';
 class NavigationComponent extends Component {
 	componentDidMount() {
 		this.props.getCategories();
+
 	}
 	getIcon = ( categoryName ) => {
 		switch( categoryName ) {
@@ -43,6 +44,7 @@ class NavigationComponent extends Component {
 						</span>
 					</Link>
 					<ul className='category-list'>
+
 						{ categories && categories.map( ( category ) => (
 							<li
 								key={ category.path }

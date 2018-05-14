@@ -1,0 +1,57 @@
+.single-post {
+	background-color:#f0f0f0;
+	border-top:5px solid $secondary-blue;
+	box-shadow:2px 2px 5px rgba(0,0,0,0.4);
+	padding:10px 0;
+	.post-title, .post-meta, .post-content, .post-comments {
+		padding:0 10px;
+		@include breakpoint(medium) {
+			padding:0 15px;
+		}
+		@include breakpoint(large) {
+			padding:0 20px;
+		}
+	}
+	.post-controls-wrapper {
+		margin:20px auto;
+		.post-controls {
+			& > div {
+			width:22%;
+				&:first-child {
+					width:33%;
+					@include breakpoint(medium) {
+						height:100%;
+					}
+				}
+				@include breakpoint(medium) {
+					width:22%;
+					height:100%;
+					padding:5px;
+				}
+			}
+			.post-voting {
+				@include breakpoint(medium) {
+					.voting-triggers {
+						flex-direction:row;
+						padding:0;
+						.vote-up-trigger {
+							margin-right: 10px;
+							top:-1px;
+						}
+						.vote-number {
+							margin:0;
+						}
+						.vote-down-trigger {
+							margin-left: 12px;
+							top:1px;
+						}
+					}
+				}
+			}
+			@include breakpoint(medium) {
+				@include flex-align(center, middle);
+				flex-direction:row;
+			}
+		}
+	}
+}

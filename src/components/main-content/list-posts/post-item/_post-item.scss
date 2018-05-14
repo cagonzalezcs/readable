@@ -24,7 +24,7 @@
 		text-transform:uppercase;
 		font-weight:bold;
 		font-size:.9rem;
-		color:$secondary-blue;
+		display:inline-block;
 		@media (min-width:850px) {
 			font-size:1.1rem;
 		}
@@ -99,7 +99,6 @@
 		justify-content:space-between;
 		align-items:stretch;
 		align-content:stretch;
-		flex-grow:1;
 	}
 	@include breakpoint(large) {
 		margin-bottom:25px;

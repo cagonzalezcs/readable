@@ -2,6 +2,7 @@
 	width:100%;
 	height:auto;
 	min-height:100vh;
+	overflow-x:hidden;
 	@include bottom-left-radial-graident(0%, 75%, darken($primary-white, 12%), lighten($primary-white, 4%))
 	.app-content {
 		position: relative;
