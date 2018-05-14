@@ -1,26 +1,19 @@
 import React, { Component } from 'react';
-// import { Link } from 'react-router-dom';
-import SortPostsComponent from './sort-posts/SortPosts';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import ListPostsComponent from './list-posts/ListPosts';
 
 class MainContentAreaComponent extends Component {
 	render () {
 		return (
 			<div className="main-content-area">
-				<div className="main-content-header">
-					<div className="main-content-area-title">
-						<h1>All Readable Posts</h1>
-					</div>
-					<div className="post-sorting">
-						<SortPostsComponent />
-					</div>
-				</div>
 				<div className="post-list-container">
-					<ListPostsComponent />
+					<Switch>
+						<Route exact path='/' component={ ListPostsComponent } />
+					</Switch>
 				</div>
 			</div>
 		)
 	}
 }
 
-export default MainContentAreaComponent;
+export default withRouter(MainContentAreaComponent);

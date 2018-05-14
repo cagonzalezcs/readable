@@ -6,7 +6,7 @@ class EditPostComponent extends Component {
 			<div className="edit-post">
 				<div className="edit-post-trigger control-icon-box">
 					<div className="controls-tooltip">Edit</div>
-					<i class="far fa-edit"></i>
+					<i className="far fa-edit"></i>
 				</div>
 			</div>
 		)

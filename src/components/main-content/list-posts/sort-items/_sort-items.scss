@@ -1,10 +1,10 @@
-.post-sorting-controls {
+.item-sorting-controls {
 	@include flex();
 	@include flex-align(center, middle);
 	align-items:stretch;
 	margin-bottom:15px;
 	box-shadow:2px 2px 5px rgba(0,0,0,0.2);
-	.post-sorting-label {
+	.item-sorting-label {
 		width:100px;
 		display:block;
 		background:$primary-blue;
@@ -19,7 +19,7 @@
 			width:175px;
 		}
 	}
-	.post-sorting-selector {
+	.item-sorting-selector {
 		margin-bottom:0;
 		border:none;
 		background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' width='32' height='24' viewBox='0 0 32 24'><polygon points='0,0 32,0 16,24' style='fill: rgb%2844, 62, 80%29'></polygon></svg>");

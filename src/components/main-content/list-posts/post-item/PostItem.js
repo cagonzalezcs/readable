@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PostControlsComponent from '../post-controls/PostControls';
+import PostControlsComponent from '../../post-controls/PostControls';
 
 class PostItemComponent extends Component {
 	render () {
@@ -24,6 +24,7 @@ class PostItemComponent extends Component {
 					</div>
 					<div className="post-excerpt">
 						<p className="excerpt">Everyone says so after all.</p>
+						<span className="post-link button">View Post</span>
 					</div>
 				</div>
 				<div className="post-controls-wrapper">

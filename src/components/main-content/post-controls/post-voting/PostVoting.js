@@ -6,13 +6,13 @@ class PostVotingComponent extends Component {
 			<div className="post-voting">
 				<div className="voting-triggers">
 					<span className="vote-up-trigger">
-						<i class="fas fa-thumbs-up"></i>
+						<i className="fas fa-thumbs-up"></i>
 					</span>
 					<span className="vote-number">
 						10
 					</span>
 					<span className="vote-down-trigger">
-						<i class="fas fa-thumbs-down"></i>
+						<i className="fas fa-thumbs-down"></i>
 					</span>
 				</div>
 			</div>

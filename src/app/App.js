@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import './App.css';
 import $ from 'jquery';
 import 'foundation-sites';
@@ -14,7 +15,10 @@ class App extends Component {
         return (
             <div className="application-body">
                 <div className="app-content">
-                    <NavigationComponent />
+                    <Switch>
+                        <Route exact path="/" component={NavigationComponent} />
+                        <Route path="/:category?" component={NavigationComponent} />
+                    </Switch>
                     <MainContentAreaComponent />
                 </div>
                 <FooterComponent />
@@ -23,4 +27,4 @@ class App extends Component {
     }
 }
 
-export default App;
+export default withRouter(App);

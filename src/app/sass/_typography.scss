@@ -1,5 +1,6 @@
 body {
 	font-family:'Questrial', sans-serif;
+	color:$primary-black;
 }
 
 h1,
@@ -9,20 +10,21 @@ h4,
 h5,
 h6 {
 	font-family:'Varela Round', sans-serif;
+	color:$secondary-blue;
 }
 
 a {
 	color:$primary-blue;
 	@include css-transition(all, .25s, ease);
 	transition-property: color, background-color;
-	&.button {
-		color:$primary-white;
-		background-color:$primary-blue;
-		&:hover, &:active, &:focus {
-			background-color:$secondary-blue;
-		}
-	}
 	&:hover, &:active, &:focus {
-		color:$secondary-blue;
+		color: lighten($primary-blue, 24%);
+	}
+}
+.button {
+	color:$primary-white;
+	background-color:$primary-blue;
+	&:hover, &:active, &:focus {
+		background-color:$secondary-blue;
 	}
 }

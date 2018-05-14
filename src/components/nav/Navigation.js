@@ -1,9 +1,29 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getCategories, selectCategory } from '../../actions/CategoryActions';
 
 
 class NavigationComponent extends Component {
+	componentDidMount() {
+		this.props.getCategories();
+	}
+	getIcon = ( categoryName ) => {
+		switch( categoryName ) {
+			case 'react':
+				return <span className="fab fa-react"></span>;
+			case 'redux':
+				return <span className="fab fa-connectdevelop"></span>;
+			case 'udacity':
+				return <span className="fas fa-graduation-cap"></span>;
+			default:
+				return <span className="fas fa-question"></span>;
+		}
+	}
 	render () {
+		const { categories } = this.props.categories;
+		const currentRoute = this.props.match.params.category;
+
 		return (
 			<div className="navigation">
 				<Link
@@ -15,38 +35,28 @@ class NavigationComponent extends Component {
 				<div className='nav-links'>
 					<Link
 						to='/'
-						className='home-link'
+						className={ 'home-link' + ( currentRoute === undefined ? ' active-item' : '' ) }
 						alt='Readable'>
-						<i class="fas fa-home"></i>
+						<i className="fas fa-home"></i>
 						<span className="home-label">
 							Home
 						</span>
 					</Link>
 					<ul className='category-list'>
-						<li className='category-item'>
-							<span className="category-link">
-								<i className="fab fa-react"></i>
-								<span className="category-name">
-									React
-								</span>
-							</span>
-						</li>
-						<li className='category-item'>
-							<span className="category-link">
-								<i className="fab fa-connectdevelop"></i>
-								<span className="category-name">
-									Redux
-								</span>
-							</span>
-						</li>
-						<li className='category-item'>
-							<span className="category-link">
-								<i className="fas fa-graduation-cap"></i>
-								<span className="category-name">
-									Udacity
-								</span>
-							</span>
-						</li>
+						{ categories && categories.map( ( category ) => (
+							<li
+								key={ category.path }
+								className={ 'category-item' + ( currentRoute === category.path ? ' active-item' : '' ) }>
+								<Link
+									className="category-link"
+									to={`/${category.path}`}>
+									{ this.getIcon( category.name ) }
+									<span className="category-name">
+										{ category.name }
+									</span>
+								</Link>
+							</li>
+						))}
 					</ul>
 				</div>
 				<div className="menu-collapse">
@@ -66,4 +76,9 @@ class NavigationComponent extends Component {
 	}
 }
 
-export default NavigationComponent;
+const mapStateToProps = ({ categories, selectedCategory }) => ({
+	categories,
+	selectedCategory
+})
+
+export default connect( mapStateToProps, { getCategories, selectCategory } )( NavigationComponent );

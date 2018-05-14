@@ -6,7 +6,7 @@ class DeletePostComponent extends Component {
 			<div className="delete-post">
 				<div className="delete-post-trigger control-icon-box">
 					<div className="controls-tooltip">Delete</div>
-					<i class="fas fa-trash-alt"></i>
+					<i className="fas fa-trash-alt"></i>
 				</div>
 			</div>
 		)
