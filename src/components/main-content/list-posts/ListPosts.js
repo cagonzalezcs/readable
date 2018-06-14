@@ -59,8 +59,8 @@ class ListPostsComponent extends Component {
 				</div>
 				{ sortedPosts !== undefined && sortedPosts.length ? sortedPosts.map( post => (
 					<PostItemComponent
-						key={ post.id }
 						post={ post }
+						key={ post.id }
 					/>
 				)):(
 					<div className="no-posts-available">

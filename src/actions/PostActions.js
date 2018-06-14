@@ -15,8 +15,6 @@ export const getPosts = ( filter ) => ( dispatch ) => (
 		.then( ( posts ) => dispatch( storePosts( posts )))
 )
 
-
-
 // Store Multiple Posts
 export const storePosts = ( posts ) => {
 	return {
@@ -65,10 +63,10 @@ export const storeNewPost = ( post ) => {
 export const deletePost = ( post ) => ( dispatch ) => {
 	return ReadableAPI
 		.deletePost( post.id )
-		.then( data => dispatch( removePost( data )));
+		.then( dispatch( removePost( post )));
 }
 
-// Remove Post
+// Remove Post from Store
 export const removePost = ( post ) => {
 	return {
 		type: REMOVE_POST,

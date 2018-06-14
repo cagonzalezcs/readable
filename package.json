@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "form-serialize": "^0.7.2",
     "foundation-sites": "^6.4.4-rc1",
     "moment": "^2.22.1",
     "node-sass-chokidar": "^1.2.2",
@@ -12,9 +13,11 @@
     "react-foundation": "^0.9.5",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
+    "react-router-hash-link": "^1.2.0",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "uuid": "^3.2.1"
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",

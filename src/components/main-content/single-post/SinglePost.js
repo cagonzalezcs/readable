@@ -1,44 +1,91 @@
 import React, { Component } from 'react';
-import PostControlsComponent from '../post-controls/PostControls';
+import { connect } from 'react-redux';
+import UserControlsComponent from '../user-controls/UserControls';
+import PostCommentsComponent from './post-comments/PostComments';
+import { getPost } from '../../../actions/PostActions.js';
+import { addComment } from '../../../actions/CommentActions.js';
+import moment from 'moment';
+import FormSerialize from 'form-serialize';
+import uuid from 'uuid';
 
 class SinglePostComponent extends Component {
+	componentDidMount() {
+		const postID = this.props.match.params.id || false;
+		this.props.getPost( postID );
+	}
+
+	componentWillReceiveProps( nextProps ) {
+		if( nextProps.match.params.id !== this.props.match.params.id ) {
+			const id = this.props.match.params.id || false;
+			this.props.getPost(id);
+		}
+	}
+
+	addNewComment = ( event ) => {
+		event.preventDefault();
+		const postID = this.props.post.id;
+		const serializedComment = FormSerialize(event.target, {hash: true});
+		const commentID = uuid();
+		const comment = {
+			...serializedComment,
+			id: commentID,
+			parentID: postID
+		}
+
+		this.props.addComment( comment );
+	}
+
 	render () {
+
+		const { post, comments } = this.props;
+		const postComments = comments[ post.id ] || [];
+
 		return (
-			<div className="single-post-content-area">
-				<div className="single-post">
-					<div className="post-title">
-						<h1>Udacity is the best place to learn React</h1>
-					</div>
-					<div className="post-meta">
-						<div className="author">
-							<span>Posted by thingtwo</span>
+			<article className="single-post-content-area">
+				{ post && post.title ? (
+					<div className="single-post">
+						<div className="post-title">
+							<h1>{ post.title }</h1>
 						</div>
-						<div className="date">
-							<span>on June 28, 2016 9:21 PM</span>
+						<div className="post-meta">
+							<div className="author">
+								<span>Posted by { post.author }</span>
+							</div>
+							<div className="date">
+								<span>on { moment( post.timestamp ).format('MMMM Do YYYY, h:mm a') }</span>
+							</div>
+						</div>
+						<div className="post-content">
+							<p>{ post.body }</p>
+						</div>
+						<div className="user-controls-wrapper">
+							<UserControlsComponent
+								post={post}
+							/>
+						</div>
+						<div className="post-comments-wrapper">
+							{ postComments && (
+								<PostCommentsComponent
+									comments={ postComments }
+									onCommentSubmission={ this.addNewComment }
+								/>
+							)}
 						</div>
 					</div>
-					<div className="post-content">
-						<p>Everyone says so after all.</p>
-					</div>
-					<div className="post-controls-wrapper">
-						<PostControlsComponent />
-					</div>
-					<div className="post-comments">
-						<div className="comments-title">
-							<h4>2 Comments on this Post:</h4>
-						</div>
-						<ul className="comments-list">
-							<li className="comment-item">
-								<span className="comment-author">thingtwo</span>
-								<p className="comment-body">Hi there! I am a COMMENT.</p>
-								<div className="comment-controls"></div>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
+				) : (
+					<span className="post-dne">
+						This Post Does Not Exist
+					</span>
+				)}
+
+			</article>
 		)
 	}
 }
 
-export default SinglePostComponent;
+const mapStateToProps = ({ post, comments }) => ({
+	post: post.post ? post.post : post,
+	comments
+})
+
+export default connect(mapStateToProps, { getPost, addComment })(SinglePostComponent);

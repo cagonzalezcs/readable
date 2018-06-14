@@ -1,33 +1,20 @@
 import {
-	STORE_POSTS,
 	STORE_POST,
-	STORE_NEW_POST,
 	REMOVE_POST
 } from '../actions/PostActions';
 
-const posts = ( state={}, action ) => {
-	const { post, posts } = action;
+const post = (state = {}, action) => {
+	const { post } = action;
 	switch ( action.type ) {
-		case STORE_POSTS:
-			return {
-				...state,
-				posts
-			};
 		case STORE_POST:
 			return {
 				...state,
 				post
 			};
-		case STORE_NEW_POST:
-			return {
-				...state,
-				posts: state.posts.concat(post)
-			};
 		case REMOVE_POST:
 			return {
 				...state,
-				post: undefined,
-				posts: state.posts.filter( items => items.id !== post.id )
+				post: undefined
 			};
 		default:
 			return state;
@@ -35,4 +22,4 @@ const posts = ( state={}, action ) => {
 }
 
 
-export default posts;
+export default post;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import PostControlsComponent from '../../post-controls/PostControls';
+import UserControlsComponent from '../../user-controls/UserControls';
 import moment from 'moment';
 
 class PostItemComponent extends Component {
@@ -9,7 +9,9 @@ class PostItemComponent extends Component {
 		const { post } = this.props;
 
 		return (
-			<div className="post-item">
+			<div
+				className="post-item"
+				key={ post.id }>
 				<div className="post-details">
 					<div className="post-category">
 						<Link
@@ -42,8 +44,10 @@ class PostItemComponent extends Component {
 							className="post-link button">View Post</Link>
 					</div>
 				</div>
-				<div className="post-controls-wrapper">
-					<PostControlsComponent />
+				<div className="user-controls-wrapper">
+					<UserControlsComponent
+						post={post}
+					/>
 				</div>
 			</div>
 		)

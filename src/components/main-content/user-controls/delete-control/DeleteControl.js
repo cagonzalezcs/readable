@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-class DeletePostComponent extends Component {
+class DeleteControlComponent extends Component {
 	render () {
 		return (
-			<div className="delete-post">
-				<div className="delete-post-trigger control-icon-box">
+			<div className="delete-control">
+				<div className="delete-item-trigger control-icon-box">
 					<div className="controls-tooltip">Delete</div>
 					<i className="fas fa-trash-alt"></i>
 				</div>
@@ -13,4 +13,4 @@ class DeletePostComponent extends Component {
 	}
 }
 
-export default DeletePostComponent;
+export default DeleteControlComponent;

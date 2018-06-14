@@ -1,9 +1,9 @@
 .single-post {
-	background-color:#f0f0f0;
+	background-color:#f3f3f3;
 	border-top:5px solid $secondary-blue;
 	box-shadow:2px 2px 5px rgba(0,0,0,0.4);
-	padding:10px 0;
-	.post-title, .post-meta, .post-content, .post-comments {
+	padding:20px 0 0;
+	.post-title, .post-meta, .post-content {
 		padding:0 10px;
 		@include breakpoint(medium) {
 			padding:0 15px;
@@ -12,24 +12,95 @@
 			padding:0 20px;
 		}
 	}
-	.post-controls-wrapper {
-		margin:20px auto;
-		.post-controls {
-			& > div {
-			width:22%;
-				&:first-child {
-					width:33%;
-					@include breakpoint(medium) {
-						height:100%;
-					}
+	.post-title {
+		h1 {
+			line-height:1;
+			margin-bottom:5px;
+			font-size:1.4rem;
+			@media (min-width:850px) {
+				font-size:2rem;
+			}
+			@include breakpoint(large) {
+				font-size:2.4rem;
+			}
+			@include breakpoint(xlarge) {
+				font-size:3.2rem;
+			}
+		}
+	}
+	.post-meta {
+		margin-bottom:20px;
+		font-weight:600;
+		font-style:italic;
+		font-size:.75rem;
+		.author, .date {
+			display:inline-block;
+		}
+		.date {
+			margin-left:5px;
+		}
+		@media (min-width:850px) {
+			font-size:.9rem;
+		}
+		@include breakpoint(large) {
+			font-size:1.05rem;
+		}
+		@include breakpoint(xlarge) {
+			font-size:1.2rem;
+		}
+	}
+	.post-content {
+		font-size:.95rem;
+		line-height:1.4;
+		@media (min-width:850px) {
+			font-size:1.15rem;
+		}
+		@include breakpoint(large) {
+			font-size:1.3rem;
+		}
+		@include breakpoint(xlarge) {
+			font-size:1.5rem;
+		}
+	}
+	.user-controls-wrapper {
+		margin:20px auto 0;
+		.user-controls {
+			background-color: #f3f3f3;
+			color:$secondary-blue;
+			a {
+				color:$secondary-blue;
+			}
+			.controls-tooltip {
+				color:$primary-white;
+				bottom: calc(100% + 12px);
+				left: calc(50% - 63px);
+				top:auto;
+				right:auto;
+				 -webkit-transform: translateY(-15px);
+				-ms-transform: translateY(-15px);
+				transform: translateY(-15px);
+				&:after {
+					right: calc(50% - 12px);
+    				top: 100%;
+    				left: auto;
+    				border-width: 10px 12px 0 12px;
+					border-color: #2c3e50 transparent transparent transparent;
 				}
 				@include breakpoint(medium) {
-					width:22%;
-					height:100%;
-					padding:5px;
+					left: calc(50% - 75px);
+				}
+				@include breakpoint(xlarge) {
+					left: calc(50% - 88px);
 				}
 			}
-			.post-voting {
+			& > div {
+				width:auto;
+				@include breakpoint(medium) {
+					height:100%;
+					padding:5px 20px;
+				}
+			}
+			.vote-control {
 				@include breakpoint(medium) {
 					.voting-triggers {
 						flex-direction:row;
@@ -48,9 +119,17 @@
 					}
 				}
 			}
+			.comments-controls {
+				.control-icon-box {
+					.controls-tooltip {
+						display:none;
+					}
+				}
+			}
 			@include breakpoint(medium) {
-				@include flex-align(center, middle);
+				@include flex-align(right, middle);
 				flex-direction:row;
+				padding-right:15px;
 			}
 		}
 	}

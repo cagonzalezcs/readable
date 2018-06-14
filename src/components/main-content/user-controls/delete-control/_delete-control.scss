@@ -1,8 +1,8 @@
-.delete-post {
+.delete-control {
 	height:100%;
 	@include flex();
 	@include flex-align(center, middle);
-	.delete-post-trigger {
+	.delete-item-trigger {
 		cursor: pointer;
 	}
 }

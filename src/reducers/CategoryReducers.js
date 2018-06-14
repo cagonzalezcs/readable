@@ -3,7 +3,7 @@ import {
 	SELECT_CATEGORY
 } from '../actions/CategoryActions';
 
-const categories = ( state = {}, action ) => {
+const categories = (state = {}, action) => {
 	const { categories, selectedCategory } = action;
 
 	switch (action.type ){

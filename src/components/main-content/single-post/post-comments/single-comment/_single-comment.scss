@@ -1,0 +1,22 @@
+.comment-item {
+	margin-bottom:15px;
+	background-color: darken(#f0f0f0, 2%);
+	padding:10px;
+	padding-bottom:2px;
+	box-shadow:2px 2px 5px rgba(0,0,0,0.4);
+	.comment-header {
+		.comment-author {
+			font-weight:bold;
+			font-size:120%;
+			display:block;
+			line-height:1.4;
+		}
+		.comment-date {
+			display:block;
+			font-size:90%;
+			font-style:italic;
+			line-height:1.4;
+			margin-bottom:10px;
+		}
+	}
+}
