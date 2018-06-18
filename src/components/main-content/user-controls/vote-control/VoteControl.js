@@ -16,7 +16,7 @@ class VoteControlComponent extends Component {
 		return (
 			<div className="vote-control">
 				<div className="voting-triggers">
-					<span
+					<button
 						className="vote-up-trigger"
 						onClick = {
 							() => {
@@ -24,9 +24,9 @@ class VoteControlComponent extends Component {
 							}
 						}>
 						<i className="fas fa-thumbs-up"></i>
-					</span>
+					</button>
 					<span className="vote-number">{ elemScore }</span>
-					<span
+					<button
 						className="vote-down-trigger"
 						onClick = {
 							() => {
@@ -34,14 +34,14 @@ class VoteControlComponent extends Component {
 							}
 						}>
 						<i className="fas fa-thumbs-down"></i>
-					</span>
+					</button>
 				</div>
 			</div>
 		)
 	}
 }
 
-const mapStateToProps = ({ vote }, ownProps ) => ({
+const mapStateToProps = ( { vote }, ownProps ) => ({
 	vote
 })
 

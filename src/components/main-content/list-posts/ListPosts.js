@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
 import PostItemComponent from './post-item/PostItem';
 import SortItemsComponent from './sort-items/SortItems';
-
 import { selectCategory } from '../../../actions/CategoryActions';
 import { getPosts } from '../../../actions/PostActions';
 
 class ListPostsComponent extends Component {
+
+	state = {
+		sortedPosts: []
+	}
+
 	componentDidMount() {
 		const filter = this.props.match.params.category || false;
 		this.props.getPosts( filter );
@@ -21,7 +24,7 @@ class ListPostsComponent extends Component {
 	}
 
 	sortPosts = ( posts, sort ) => {
-		if ( posts ) {
+		if ( posts !== undefined ) {
 			switch ( sort.orderBy ) {
 				case 'descVoteScore':
 					return posts.sort( ( postA, postB ) => postA.voteScore < postB.voteScore );
@@ -43,6 +46,7 @@ class ListPostsComponent extends Component {
 		const { posts } = this.props.posts;
 		const { sort } = this.props;
 		const sortedPosts = this.sortPosts( posts, sort );
+		console.log(sortedPosts);
 
 		return (
 			<div className="post-list">

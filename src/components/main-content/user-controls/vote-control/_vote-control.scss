@@ -10,6 +10,10 @@
 		.vote-up-trigger, .vote-down-trigger {
 			position:relative;
 			cursor:pointer;
+			color:$primary-white;
+			&:hover, &:active, &:focus {
+				color:$secondary-white;
+			}
 		}
 		.vote-up-trigger {
 			margin-right: 5px;

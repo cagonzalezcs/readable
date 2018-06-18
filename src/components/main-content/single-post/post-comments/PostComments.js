@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import SingleCommentComponent from './single-comment/SingleComment';
+import AddCommentCompontent from './add-comment/AddComment';
+
 
 class PostCommentsComponent extends Component {
 
@@ -11,15 +13,9 @@ class PostCommentsComponent extends Component {
 		}
 	}
 
-	handleSubmission = ( event ) => {
-		event.preventDefault();
-		this.props.onCommentSubmission( event );
-		this.commentForm.reset();
-	}
-
 	render () {
 		const { comments } = this.props;
-
+		console.log( comments );
 		return (
 			<div id="post-comments" className="post-comments">
 				<div className="comments-title">
@@ -33,6 +29,9 @@ class PostCommentsComponent extends Component {
 						/>
 					))}
 				</ul>
+				<AddCommentCompontent
+					comments={comments}
+				/>
 			</div>
 		)
 	}

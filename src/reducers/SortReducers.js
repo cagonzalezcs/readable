@@ -3,13 +3,12 @@ import {
 } from '../actions/SortActions';
 
 const sort = (state = {}, action) => {
-	const { orderBy, sort } = action;
+	const { orderBy } = action;
 	switch( action.type ) {
 		case SET_SORT:
 			return {
 				...state,
 				orderBy,
-				sort
 			};
 		default:
 			return state;

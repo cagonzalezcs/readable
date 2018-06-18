@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { withRouter } from 'react-router-dom';
-// import { deletePost, storePost } from '../../../actions/PostActions';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { deletePost } from '../../../actions/PostActions';
 import VoteControlComponent from './vote-control/VoteControl';
 import CommentsCountComponent from './comments-count/CommentsCount';
 import EditControlComponent  from './edit-control/EditControl';
 import DeleteControlComponent from './delete-control/DeleteControl';
 
 class UserControlsComponent extends Component {
+
+	eventEditPost = () => {
+		this.props.history.push( `/edit/${this.props.post.id}` );
+	}
+
+	eventDeletePost = () => {
+		this.props.deletePost( this.props.post );
+		this.props.history.push('/');
+	}
+
 	render () {
 
 		const { post } = this.props;
@@ -25,14 +35,21 @@ class UserControlsComponent extends Component {
 					/>
 				</div>
 				<div className="edit-controls">
-					<EditControlComponent />
+					<EditControlComponent
+						onEditElem = { () => { this.eventEditPost() } }
+					/>
 				</div>
 				<div className="delete-controls">
-					<DeleteControlComponent />
+					<DeleteControlComponent
+						onDeleteElem = { () => { this.eventDeletePost() } } />
 				</div>
 			</div>
 		)
 	}
 }
 
-export default UserControlsComponent;
+const mapStateToProps = ( { categories } ) => ( {
+	categories
+} );
+
+export default withRouter(connect(mapStateToProps, { deletePost })( UserControlsComponent ));

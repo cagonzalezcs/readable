@@ -68,10 +68,12 @@ class NavigationComponent extends Component {
 					</span>
 				</div>
 				<div className="new-post">
-					<span className="new-post-link">
+					<Link
+						to='/new'
+						className="new-post-link">
 						<div className="new-post-tooltip">Add New Post</div>
 						<i className="fas fa-plus"></i>
-					</span>
+					</Link>
 				</div>
 			</div>
 		)

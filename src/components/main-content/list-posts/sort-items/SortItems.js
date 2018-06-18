@@ -13,6 +13,7 @@ class SortItemsComponent extends Component {
 	}
 
 	render() {
+
 		return (
 			<div className="item-sorting-controls">
 				<label className="item-sorting-label" htmlFor="postSortingSelector">Sort By</label>
@@ -33,8 +34,4 @@ class SortItemsComponent extends Component {
 	}
 }
 
-const mapStateToProps = ( { sort } ) => ({
-	sort
-})
-
-export default connect( mapStateToProps, { setSort } )( SortItemsComponent );
+export default connect( null, { setSort } )( SortItemsComponent );

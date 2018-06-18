@@ -3,6 +3,10 @@
 	@include flex();
 	@include flex-align(center, middle);
 	.edit-item-trigger {
+		color:$primary-white;
 		cursor: pointer;
+		&:hover, &:active, &:focus {
+			color:$secondary-white;
+		}
 	}
 }

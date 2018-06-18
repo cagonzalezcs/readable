@@ -105,6 +105,12 @@
 					.voting-triggers {
 						flex-direction:row;
 						padding:0;
+						.vote-up-trigger, .vote-down-trigger {
+							color:$primary-blue;
+							&:hover, &:active, &:focus {
+								color:$secondary-blue;
+							}
+						}
 						.vote-up-trigger {
 							margin-right: 10px;
 							top:-1px;
@@ -123,6 +129,22 @@
 				.control-icon-box {
 					.controls-tooltip {
 						display:none;
+					}
+				}
+			}
+			.edit-control {
+				.edit-item-trigger {
+					color:$primary-blue;
+					&:hover, &:active, &:focus {
+						color:$secondary-blue;
+					}
+				}
+			}
+			.delete-control {
+				.delete-item-trigger {
+					color:$primary-blue;
+					&:hover, &:active, &:focus {
+						color:$secondary-blue;
 					}
 				}
 			}

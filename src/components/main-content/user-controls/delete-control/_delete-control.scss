@@ -3,6 +3,10 @@
 	@include flex();
 	@include flex-align(center, middle);
 	.delete-item-trigger {
+		color:$primary-white;
 		cursor: pointer;
+		&:hover, &:active, &:focus {
+			color:$secondary-white;
+		}
 	}
 }

@@ -8,17 +8,17 @@ export const STORE_COMMENT = 'STORE_COMMENT';
 export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 
 // Get All Comments of Post
-export const getComments = ( postID ) => ( dispatch ) => (
+export const getComments = ( parentId ) => ( dispatch ) => (
 	ReadableAPI
-		.getComments( postID )
-		.then( ( comments ) => dispatch( storeComments( postID, comments )))
+		.getComments( parentId )
+		.then( ( comments ) => dispatch( storeComments( parentId, comments )))
 )
 
 // Store All Comments of Post
-export const storeComments = ( postID, comments ) => {
+export const storeComments = ( parentId, comments ) => {
 	return {
 		type: STORE_COMMENTS,
-		postID,
+		parentId,
 		comments
 	}
 }

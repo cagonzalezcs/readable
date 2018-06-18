@@ -1,0 +1,16 @@
+.add-comment-wrapper {
+	.add-comment-title {
+		h6 {
+			font-size: 1.2rem;
+			@include breakpoint(medium) {
+				font-size: 1.6rem;
+			}
+			@include breakpoint(large) {
+				font-size: 1.8rem;
+			}
+			@include breakpoint(xlarge) {
+				font-size: 2rem;
+			}
+		}
+	}
+}

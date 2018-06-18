@@ -5,26 +5,28 @@ import {
 } from '../actions/CommentActions';
 
 const comments = (state = {}, action) => {
-	const { postID, comments, comment } = action;
+	const { comment } = action;
 
 	switch ( action.type ) {
 		case STORE_COMMENTS:
+			const { parentId, comments } = action;
 			return {
 				...state,
-				[postID]: comments
+				[parentId]: comments
 			};
 		case STORE_COMMENT:
-			const existingComments = state[comment.parentID].filter( data => data.id === comment.id ).length;
+			console.log(comment)
+			const existingComment = state[comment.parentId].filter( data => data.id === comment.id ).length;
 			return {
 				...state,
-				[comment.parentID]: existingComments ?
-					state[comment.parentID].map( data => data.id === comment.id ? comment : data ) :
-					state[comment.parentID].concat( comment )
+				[comment.parentId]: existingComment ?
+					state[comment.parentId].map( data => data.id === comment.id ? comment : data ) :
+					state[comment.parentId].concat( comment )
 			};
 		case REMOVE_COMMENT:
 			return {
 				...state,
-				[comment.parentID]: state[comment.parentID].filter( data => data.id !== comment.id )
+				[comment.parentId]: state[comment.parentId].filter( data => data.id !== comment.id )
 			};
 		default:
 			return state;

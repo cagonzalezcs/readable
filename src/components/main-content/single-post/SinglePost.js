@@ -3,10 +3,8 @@ import { connect } from 'react-redux';
 import UserControlsComponent from '../user-controls/UserControls';
 import PostCommentsComponent from './post-comments/PostComments';
 import { getPost } from '../../../actions/PostActions.js';
-import { addComment } from '../../../actions/CommentActions.js';
 import moment from 'moment';
-import FormSerialize from 'form-serialize';
-import uuid from 'uuid';
+
 
 class SinglePostComponent extends Component {
 	componentDidMount() {
@@ -19,20 +17,6 @@ class SinglePostComponent extends Component {
 			const id = this.props.match.params.id || false;
 			this.props.getPost(id);
 		}
-	}
-
-	addNewComment = ( event ) => {
-		event.preventDefault();
-		const postID = this.props.post.id;
-		const serializedComment = FormSerialize(event.target, {hash: true});
-		const commentID = uuid();
-		const comment = {
-			...serializedComment,
-			id: commentID,
-			parentID: postID
-		}
-
-		this.props.addComment( comment );
 	}
 
 	render () {
@@ -67,7 +51,6 @@ class SinglePostComponent extends Component {
 							{ postComments && (
 								<PostCommentsComponent
 									comments={ postComments }
-									onCommentSubmission={ this.addNewComment }
 								/>
 							)}
 						</div>
@@ -88,4 +71,4 @@ const mapStateToProps = ({ post, comments }) => ({
 	comments
 })
 
-export default connect(mapStateToProps, { getPost, addComment })(SinglePostComponent);
+export default connect(mapStateToProps, { getPost })(SinglePostComponent);

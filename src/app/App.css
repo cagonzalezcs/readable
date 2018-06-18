@@ -5064,6 +5064,37 @@ a {
       .application-body .app-content {
         justify-content: center;
         align-items: center; } }
+  .application-body .input-group {
+    flex-direction: column; }
+    .application-body .input-group ::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: #2c3e50; }
+    .application-body .input-group ::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #2c3e50; }
+    .application-body .input-group :-ms-input-placeholder {
+      /* IE 10+ */
+      color: #2c3e50; }
+    .application-body .input-group :-moz-placeholder {
+      /* Firefox 18- */
+      color: #2c3e50; }
+    .application-body .input-group label {
+      font-weight: bold;
+      font-size: 1rem; }
+    .application-body .input-group input[type="text"], .application-body .input-group textarea {
+      border: none;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+      background-color: #dfe6e9; }
+    .application-body .input-group input[type="text"] {
+      margin-bottom: 5px; }
+    .application-body .input-group input[type="submit"] {
+      background-color: #34495e;
+      color: #ecf0f1;
+      font-weight: bold;
+      padding: 7px 15px;
+      max-width: 250px;
+      margin-left: auto;
+      cursor: pointer; }
 
 .navigation {
   background-color: #2d3436;
@@ -5077,7 +5108,8 @@ a {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$start-color', endColorstr='$second-color',GradientType=1 );
   color: #dfe6e9;
   width: 100%;
-  padding: 10px; }
+  padding: 10px;
+  z-index: 99; }
   .navigation .app-title {
     color: #dfe6e9;
     text-align: center; }
@@ -5202,7 +5234,7 @@ a {
       top: 2px; }
   .navigation .new-post {
     position: fixed;
-    z-index: 99;
+    z-index: 9999;
     right: 12px;
     bottom: 56px; }
     .navigation .new-post .new-post-link {
@@ -5241,7 +5273,8 @@ a {
         -o-transition: 0.25s all ease;
         transition: 0.25s all ease;
         transition-property: opacity, transform;
-        border-radius: 2px; }
+        border-radius: 2px;
+        color: #ecf0f1; }
         .navigation .new-post .new-post-link .new-post-tooltip:after {
           content: '';
           width: 0;
@@ -5278,11 +5311,11 @@ a {
         @media screen and (min-width: 75em) {
           .navigation .new-post .new-post-link svg {
             font-size: 2rem; } }
-      .navigation .new-post .new-post-link:hover, .navigation .new-post .new-post-link:active, .navigation .new-post .new-post-link:focus {
+      .navigation .new-post .new-post-link:hover {
         background-color: #2c3e50; }
-        .navigation .new-post .new-post-link:hover svg, .navigation .new-post .new-post-link:active svg, .navigation .new-post .new-post-link:focus svg {
+        .navigation .new-post .new-post-link:hover svg {
           color: #ecf0f1; }
-        .navigation .new-post .new-post-link:hover .new-post-tooltip, .navigation .new-post .new-post-link:active .new-post-tooltip, .navigation .new-post .new-post-link:focus .new-post-tooltip {
+        .navigation .new-post .new-post-link:hover .new-post-tooltip {
           display: block;
           right: calc(100% + 10px);
           opacity: 1;
@@ -5328,14 +5361,12 @@ a {
   width: 100%;
   height: auto;
   display: block;
-  padding: 15px;
-  padding-bottom: 60px; }
+  padding: 15px 15px 115px; }
   @media print, screen and (min-width: 40em) {
     .main-content-area {
       width: 70%;
       margin-left: 30%;
-      padding: 20px;
-      padding-bottom: 60px; } }
+      padding: 20px 20px 140px; } }
   @media (min-width: 900px) {
     .main-content-area {
       width: calc(100% - 270px);
@@ -5622,6 +5653,10 @@ a {
         .single-post .user-controls-wrapper .user-controls .vote-control .voting-triggers {
           flex-direction: row;
           padding: 0; }
+          .single-post .user-controls-wrapper .user-controls .vote-control .voting-triggers .vote-up-trigger, .single-post .user-controls-wrapper .user-controls .vote-control .voting-triggers .vote-down-trigger {
+            color: #34495e; }
+            .single-post .user-controls-wrapper .user-controls .vote-control .voting-triggers .vote-up-trigger:hover, .single-post .user-controls-wrapper .user-controls .vote-control .voting-triggers .vote-up-trigger:active, .single-post .user-controls-wrapper .user-controls .vote-control .voting-triggers .vote-up-trigger:focus, .single-post .user-controls-wrapper .user-controls .vote-control .voting-triggers .vote-down-trigger:hover, .single-post .user-controls-wrapper .user-controls .vote-control .voting-triggers .vote-down-trigger:active, .single-post .user-controls-wrapper .user-controls .vote-control .voting-triggers .vote-down-trigger:focus {
+              color: #2c3e50; }
           .single-post .user-controls-wrapper .user-controls .vote-control .voting-triggers .vote-up-trigger {
             margin-right: 10px;
             top: -1px; }
@@ -5632,12 +5667,99 @@ a {
             top: 1px; } }
       .single-post .user-controls-wrapper .user-controls .comments-controls .control-icon-box .controls-tooltip {
         display: none; }
+      .single-post .user-controls-wrapper .user-controls .edit-control .edit-item-trigger {
+        color: #34495e; }
+        .single-post .user-controls-wrapper .user-controls .edit-control .edit-item-trigger:hover, .single-post .user-controls-wrapper .user-controls .edit-control .edit-item-trigger:active, .single-post .user-controls-wrapper .user-controls .edit-control .edit-item-trigger:focus {
+          color: #2c3e50; }
+      .single-post .user-controls-wrapper .user-controls .delete-control .delete-item-trigger {
+        color: #34495e; }
+        .single-post .user-controls-wrapper .user-controls .delete-control .delete-item-trigger:hover, .single-post .user-controls-wrapper .user-controls .delete-control .delete-item-trigger:active, .single-post .user-controls-wrapper .user-controls .delete-control .delete-item-trigger:focus {
+          color: #2c3e50; }
       @media print, screen and (min-width: 40em) {
         .single-post .user-controls-wrapper .user-controls {
           justify-content: flex-end;
           align-items: center;
           flex-direction: row;
           padding-right: 15px; } }
+
+.form-wrapper {
+  background-color: #ecf0f1;
+  border-top: 5px solid #2c3e50;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  padding-top: 20px;
+  padding-bottom: 20px; }
+  .form-wrapper .post-form {
+    padding-left: 10px;
+    padding-right: 10px; }
+    .form-wrapper .post-form .form-body .input-group label, .form-wrapper .post-form .form-body .input-group .category-title {
+      display: block;
+      font-weight: bold;
+      font-size: 1rem;
+      line-height: 1.4; }
+      @media print, screen and (min-width: 64em) {
+        .form-wrapper .post-form .form-body .input-group label, .form-wrapper .post-form .form-body .input-group .category-title {
+          font-size: 1.2rem; } }
+    .form-wrapper .post-form .form-body .input-group .category-items {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      justify-content: space-between; }
+      .form-wrapper .post-form .form-body .input-group .category-items label {
+        background: #34495e;
+        color: #ecf0f1;
+        text-transform: capitalize;
+        text-align: center;
+        width: calc(33.333% - 5px);
+        padding: 9px 4px;
+        position: relative;
+        cursor: pointer;
+        font-size: 1rem;
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4); }
+        .form-wrapper .post-form .form-body .input-group .category-items label.active {
+          background-color: #c1ced4;
+          color: #233140; }
+        .form-wrapper .post-form .form-body .input-group .category-items label input {
+          visibility: hidden;
+          position: absolute; }
+    @media print, screen and (min-width: 64em) {
+      .form-wrapper .post-form .form-body .input-group-wrapper .input-group:first-child {
+        margin-right: 10px; } }
+    @media print, screen and (min-width: 64em) {
+      .form-wrapper .post-form .form-body .input-group-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start; } }
+    .form-wrapper .post-form .form-footer {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center; }
+      .form-wrapper .post-form .form-footer .cancel-button, .form-wrapper .post-form .form-footer .save-button {
+        font-weight: bold;
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+        padding: 9px 15px;
+        line-height: 1;
+        color: #ecf0f1;
+        border: none;
+        cursor: pointer; }
+      .form-wrapper .post-form .form-footer .cancel-button {
+        background-color: #e74c3c;
+        margin-right: 10px; }
+      .form-wrapper .post-form .form-footer .save-button {
+        background-color: #2ecc71;
+        -webkit-transition: all 0.25s ease;
+        -moz-transition: all 0.25s ease;
+        -ms-transition: all 0.25s ease;
+        -o-transition: all 0.25s ease;
+        transition: all 0.25s ease; }
+        .form-wrapper .post-form .form-footer .save-button:disabled {
+          background: #ddd; }
+      @media print, screen and (min-width: 64em) {
+        .form-wrapper .post-form .form-footer {
+          font-size: 1.1rem; } }
+    @media print, screen and (min-width: 64em) {
+      .form-wrapper .post-form {
+        padding-left: 15px;
+        padding-right: 15px; } }
 
 .user-controls {
   width: 100%;
@@ -5732,7 +5854,7 @@ a {
   @media print, screen and (min-width: 40em) {
     .user-controls {
       flex-direction: column;
-      height: 100%; } }
+      min-height: 100%; } }
 
 .comments-count {
   height: 100%;
@@ -5752,7 +5874,10 @@ a {
   justify-content: center;
   align-items: center; }
   .delete-control .delete-item-trigger {
+    color: #ecf0f1;
     cursor: pointer; }
+    .delete-control .delete-item-trigger:hover, .delete-control .delete-item-trigger:active, .delete-control .delete-item-trigger:focus {
+      color: #dfe6e9; }
 
 .edit-control {
   height: 100%;
@@ -5760,7 +5885,10 @@ a {
   justify-content: center;
   align-items: center; }
   .edit-control .edit-item-trigger {
+    color: #ecf0f1;
     cursor: pointer; }
+    .edit-control .edit-item-trigger:hover, .edit-control .edit-item-trigger:active, .edit-control .edit-item-trigger:focus {
+      color: #dfe6e9; }
 
 .vote-control {
   height: 100%;
@@ -5773,7 +5901,10 @@ a {
       font-size: 1rem; }
     .vote-control .voting-triggers .vote-up-trigger, .vote-control .voting-triggers .vote-down-trigger {
       position: relative;
-      cursor: pointer; }
+      cursor: pointer;
+      color: #ecf0f1; }
+      .vote-control .voting-triggers .vote-up-trigger:hover, .vote-control .voting-triggers .vote-up-trigger:active, .vote-control .voting-triggers .vote-up-trigger:focus, .vote-control .voting-triggers .vote-down-trigger:hover, .vote-control .voting-triggers .vote-down-trigger:active, .vote-control .voting-triggers .vote-down-trigger:focus {
+        color: #dfe6e9; }
     .vote-control .voting-triggers .vote-up-trigger {
       margin-right: 5px;
       top: -1px; }
@@ -5838,6 +5969,47 @@ a {
     line-height: 1.4;
     margin-bottom: 10px; }
 
+.comment-edit-wrapper .edit-comment-header span {
+  font-weight: bold;
+  font-size: 1.4rem; }
+  @media print, screen and (min-width: 40em) {
+    .comment-edit-wrapper .edit-comment-header span {
+      font-size: 1.6rem; } }
+  @media print, screen and (min-width: 64em) {
+    .comment-edit-wrapper .edit-comment-header span {
+      font-size: 1.8rem; } }
+
+.comment-edit-wrapper .comment-edit-footer .input-group {
+  justify-content: flex-end;
+  align-items: center;
+  flex-direction: row; }
+  .comment-edit-wrapper .comment-edit-footer .input-group .submit-edit, .comment-edit-wrapper .comment-edit-footer .input-group .cancel-edit {
+    font-weight: bold;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    padding: 9px 15px;
+    line-height: 1;
+    color: #ecf0f1;
+    border: none;
+    cursor: pointer; }
+  .comment-edit-wrapper .comment-edit-footer .input-group .cancel-edit {
+    background-color: #e74c3c;
+    margin-right: 10px; }
+  .comment-edit-wrapper .comment-edit-footer .input-group .submit-edit {
+    margin: 0;
+    background-color: #2ecc71; }
+
+.add-comment-wrapper .add-comment-title h6 {
+  font-size: 1.2rem; }
+  @media print, screen and (min-width: 40em) {
+    .add-comment-wrapper .add-comment-title h6 {
+      font-size: 1.6rem; } }
+  @media print, screen and (min-width: 64em) {
+    .add-comment-wrapper .add-comment-title h6 {
+      font-size: 1.8rem; } }
+  @media screen and (min-width: 75em) {
+    .add-comment-wrapper .add-comment-title h6 {
+      font-size: 2rem; } }
+
 .comment-controls {
   background: transparent;
   color: #666;
@@ -5850,6 +6022,10 @@ a {
     width: auto; }
   .comment-controls .vote-control .voting-triggers {
     flex-direction: row; }
+    .comment-controls .vote-control .voting-triggers .vote-up-trigger, .comment-controls .vote-control .voting-triggers .vote-down-trigger {
+      color: #34495e; }
+      .comment-controls .vote-control .voting-triggers .vote-up-trigger:hover, .comment-controls .vote-control .voting-triggers .vote-up-trigger:active, .comment-controls .vote-control .voting-triggers .vote-up-trigger:focus, .comment-controls .vote-control .voting-triggers .vote-down-trigger:hover, .comment-controls .vote-control .voting-triggers .vote-down-trigger:active, .comment-controls .vote-control .voting-triggers .vote-down-trigger:focus {
+        color: #2c3e50; }
     .comment-controls .vote-control .voting-triggers .vote-up-trigger {
       margin-right: 5px;
       top: -1px; }
@@ -5862,6 +6038,14 @@ a {
       @media (min-width: 500px) {
         .comment-controls .vote-control .voting-triggers .vote-down-trigger {
           margin-left: 12px; } }
+  .comment-controls .edit-control .edit-item-trigger {
+    color: #34495e; }
+    .comment-controls .edit-control .edit-item-trigger:hover, .comment-controls .edit-control .edit-item-trigger:active, .comment-controls .edit-control .edit-item-trigger:focus {
+      color: #2c3e50; }
+  .comment-controls .delete-control .delete-item-trigger {
+    color: #34495e; }
+    .comment-controls .delete-control .delete-item-trigger:hover, .comment-controls .delete-control .delete-item-trigger:active, .comment-controls .delete-control .delete-item-trigger:focus {
+      color: #2c3e50; }
   .comment-controls .controls-wrapper {
     height: auto;
     width: auto;

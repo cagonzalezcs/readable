@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 
 class DeleteControlComponent extends Component {
 	render () {
+		const { onDeleteElem } = this.props;
 		return (
 			<div className="delete-control">
-				<div className="delete-item-trigger control-icon-box">
+				<button
+					className="delete-item-trigger control-icon-box"
+					onClick = { onDeleteElem }>
 					<div className="controls-tooltip">Delete</div>
 					<i className="fas fa-trash-alt"></i>
-				</div>
+				</button>
 			</div>
 		)
 	}

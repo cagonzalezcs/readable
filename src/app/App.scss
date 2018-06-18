@@ -17,6 +17,8 @@
 @import "../components/main-content/list-posts/sort-items/sort-items";
 @import "../components/main-content/list-posts/post-item/post-item";
 @import "../components/main-content/single-post/single-post";
+@import "../components/main-content/post-form/post-form";
+@import "../components/main-content/edit-post/edit-post";
 @import "../components/main-content/user-controls/user-controls";
 @import "../components/main-content/user-controls/comments-count/comments-count";
 @import "../components/main-content/user-controls/delete-control/delete-control";
@@ -24,5 +26,7 @@
 @import "../components/main-content/user-controls/vote-control/vote-control";
 @import "../components/main-content/single-post/post-comments/post-comments";
 @import "../components/main-content/single-post/post-comments/single-comment/single-comment";
+@import "../components/main-content/single-post/post-comments/single-comment/edit-comment/edit-comment";
+@import "../components/main-content/single-post/post-comments/add-comment/add-comment";
 @import "../components/main-content/single-post/post-comments/single-comment/comment-controls/comment-controls";
 @import "../components/footer/footer";

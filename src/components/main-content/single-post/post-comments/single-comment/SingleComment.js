@@ -1,16 +1,60 @@
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import FormSerialize from 'form-serialize';
+import { connect } from 'react-redux';
+import FormSerialize from 'form-serialize';
 import moment from 'moment';
-// import { updateComment } from '../../../../../actions/CommentActions';
 import CommentControlsComponent from './comment-controls/CommentControls';
+import EditCommentComponent from './edit-comment/EditComment';
+import { updateComment } from '../../../../../actions/CommentActions';
 
 
 
 class SingleCommentComponent extends Component {
+
+	state = {
+		editingComment: false
+	}
+
+	cancelCommentEdit = ( event ) => {
+		event.preventDefault();
+		this.setState({
+			editingComment: false
+		})
+	}
+
+	revealCommentEdit = () => {
+		this.setState({
+			editingComment: true
+		})
+	}
+
+	eventCommentUpdate = ( event ) => {
+		event.preventDefault();
+		const serializedComment = FormSerialize( event.target, { hash: true });
+		const updateComment = {
+			...this.props.comment,
+			...serializedComment
+		};
+		this.props.updateComment(updateComment).then( data => {
+			this.setState({
+				editingComment: false
+			})
+		})
+	}
+
 	render() {
 		const { comment } = this.props;
-		return (
+
+		return this.state.editingComment ? (
+			<li
+				className="comment-edit comment-item"
+				key={ comment.id }>
+				<EditCommentComponent
+					onEditSumbit={ ( event ) => { this.eventCommentUpdate( event ) } }
+					onCancelEdit={ this.cancelCommentEdit }
+					comment={ comment }
+				/>
+			</li>
+		) : (
 			<li
 				className="comment-item"
 				key={ comment.id }>
@@ -22,6 +66,7 @@ class SingleCommentComponent extends Component {
 				<div className="comment-controls-wrapper">
 					<CommentControlsComponent
 						comment={ comment }
+						onEditElem={ this.revealCommentEdit }
 					/>
 				</div>
 			</li>
@@ -29,4 +74,4 @@ class SingleCommentComponent extends Component {
 	}
 }
 
-export default SingleCommentComponent;
+export default connect(null, { updateComment })(SingleCommentComponent);
