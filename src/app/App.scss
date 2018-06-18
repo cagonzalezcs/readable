@@ -1,7 +1,7 @@
 // Foundation SASS
-@import '../node_modules/foundation-sites/scss/util/util';
-@import '../node_modules/foundation-sites/scss/settings/settings';
-@import '../node_modules/foundation-sites/scss/foundation';
+@import '../public/vendor/foundation-sites/scss/util/util';
+@import '../public/vendor/foundation-sites/scss/settings/settings';
+@import '../public/vendor/foundation-sites/scss/foundation';
 @include foundation-everything;
 
 // Application Styles
